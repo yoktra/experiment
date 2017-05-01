@@ -33,6 +33,9 @@
 	<link href="css/style.css" rel="stylesheet">
 	<link href="css/animate.css" rel="stylesheet">
 
+  <link href="https://cdn.jsdelivr.net/sweetalert2/6.6.2/sweetalert2.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/swal-forms.css">
+
 	<!-- Magnific Popup core CSS file -->
 	<link rel="stylesheet" href="css/magnific-popup.css">
 
@@ -199,7 +202,7 @@
             <li><i class="fa fa-check"></i> Build-in backup battery with long standby time</li>
           </ul>
 
-					 <p><a class="btn btn-embossed btn-primary" href="#" role="button">Buy Now</a>
+					 <p><a class="btn btn-embossed btn-primary" href="#" role="button" onclick="buyNow();">Buy Now</a>
 					 <!-- <a class="btn btn-embossed btn-info" href="#" role="button">Visit Website</a></p> -->
 				</div>
             </div>
@@ -525,9 +528,11 @@
 
     <!-- JavaScript -->
     <script src="js/jquery-1.10.2.js"></script>
+    <script src="https://cdn.jsdelivr.net/sweetalert2/6.6.2/sweetalert2.min.js"></script>
     <script src="js/bootstrap.js"></script>
 	<script src="js/owl.carousel.js"></script>
 	<script src="js/script.js"></script>
+  <script src="js/swal-forms.js"></script>
 	<!-- StikyMenu -->
 	<script src="js/stickUp.min.js"></script>
 	<script type="text/javascript">
@@ -539,6 +544,26 @@
 	  });
 
 	</script>
+<script type="text/javascript">
+function buyNow(){
+  swal.withFormAsync({
+    title: 'Cool Swal-Forms example',
+    text: 'Any text that you consider useful for the form',
+    showCancelButton: true,
+    confirmButtonColor: '#DD6B55',
+    confirmButtonText: 'Get form data!',
+    closeOnConfirm: true,
+    formFields: [
+      { id: 'name', placeholder: 'Name Field', required: true },
+      { id: 'nickname', placeholder: 'Add a cool nickname' }
+    ]
+  }, function (isConfirm) {
+    // do whatever you want with the form data
+    console.log(this.swalForm) // { name: 'user name', nickname: 'what the user sends' }
+  })
+}
+
+</script>
 	<!-- Smoothscroll -->
 	<script type="text/javascript" src="js/jquery.corner.js"></script>
 	<script src="js/wow.min.js"></script>
